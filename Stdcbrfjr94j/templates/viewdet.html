@@ -1,0 +1,78 @@
+{% extends 'about.html' %}
+{% load static %}
+{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}Stdcbrfjr94j/profile/ ><img src="{{media_url}}{{filename}}" width="100" alt="Logo"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href={{curl}}Stdcbrfjr94j/ >Home</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/profile/ >Profile</a></li>
+							<li class="active" ><a href={{curl}}Stdcbrfjr94j/viewall/ >All Courses</a></li>
+							<li ><a href={{curl}}Stdcbrfjr94j/mycor/ >My Courses</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/performance/ >My Performance</a></li>
+							<li><a href={{curl}} >Logout</a></li>
+                            <li class="btn-cta"><a href={{curl}}Stdcbrfjr94j/subscribe/ ><span>Subscribe Here</span></a></li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		{%endblock %}
+
+        {% block flex %}
+        {%endblock %}
+        {% block content %}
+        {% for i in data %}
+	<div id="fh5co-about">
+		<div class="container">
+			<div class="col-md-6 animate-box">
+			<font color="black" style="height:20px;">Please Don't Leave this page before the video ends or your performance couldn't be tracked precisely</font> 
+			<br></br>
+				<span>{{i.3}}-{{i.4}}</span>
+				<h2>{{i.1}}</h2>
+				<p>{{i.2}}</p>
+			</div>
+			<div class="col-md-6">
+            <video id='myVideo' width="480" height="320" controls>
+            <source src="{{media_url}}{{i.5}}" type="video/mp4">
+            </video>
+			
+			</div>
+            
+            </div>
+	</div>
+    
+{%endfor%}
+<script>
+    var video = document.getElementsByTagName('video')[0];
+
+    video.onended = function(e) {
+      window.location.href="/Stdcbrfjr94j/quizpage?uid={{uid}}"
+    };
+</script>          
+		
+{% endblock %}
+ 
+{% block stats %}
+{% endblock %}
+{% block cat %}
+{% endblock %}
+{%block offer %}
+{%endblock%}
+{% block footer %}
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			</div>
+	</footer>
+{% endblock %}

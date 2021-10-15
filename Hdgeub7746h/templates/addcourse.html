@@ -1,0 +1,157 @@
+{% extends 'about.html' %}
+{% load static %}
+{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}Hdgeub7746h/profile/ ><img src="{{media_url}}{{filename}}" width="100" alt="Profile Picture"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href={{curl}}Hdgeub7746h/ >Home</a></li>
+							<li><a href={{curl}}Hdgeub7746h/profile/ >Profile</a></li>
+							<li class="active" ><a href={{curl}}Hdgeub7746h/MyCourse/ >My Courses</a></li>
+							<li ><a href={{curl}}Hdgeub7746h/blog/  >My Blogs</a></li>
+							<li><a href={{curl}}Hdgeub7746h/feedback/ >Feedbacks</a></li>
+							<!-- <li class="has-dropdown"> -->
+								<li><a href={{curl}}Hdgeub7746h/comments/ >Comments</a></li>
+								<!-- <ul class="dropdown">
+									<li><a href="#">Web Design</a></li>
+									<li><a href="#">eCommerce</a></li>
+									<li><a href="#">Branding</a></li>
+									<li><a href="#">API</a></li> 
+								</ul> -->
+							<!-- </li> -->
+							<!-- <li><a href={{curl}}contact/ >Contact</a></li> -->
+							<li><a href={{curl}} >Logout</a></li>
+							<li class="btn-cta"><a href={{curl}}Hdgeub7746h/addcourse/ ><span>Create a Course</span></a></li>
+							
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		{%endblock %}
+
+        {% block flex %}
+        {%endblock %}
+        {% block content %}
+	<div id="fh5co-about">
+		<div class="container">
+			<div class="col-md-6 animate-box">
+					<h3>Add New Course</h3>
+                    <font color="red" style="height:20px;">{{output}}</font>   
+                    <font color="green" style="height:20px;">{{output1}}</font>
+					<form action={{curl}}Hdgeub7746h/addcourse/ method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="cname">Course Name</label>
+								<input type="text" name="cname" class="form-control" placeholder='Enter your course name' required>
+							</div>
+						</div>
+                        <div class="row form-group">
+							<div class="col-md-12">
+								<label for="ccontent">Course Content</label>
+								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Enter your course content" required></textarea>
+							</div>
+						</div>
+                        <div class="row form-group">
+							<div class="col-md-6">
+                            <select  name="cat" required>
+                                <option>Select Category</option>
+                                <option>Buisness</option>
+                                <option>Health</option>
+                                <option>Accounting</option>
+                                <option>Technology</option>
+                                <option>Art</option>
+                                <option>Real Estate</option>
+                                <option>Language</option>
+                                <option>Media</option>
+                                </select>
+								
+							</div>
+							<div class="col-md-6">
+								<label for="subcat">Sub Category</label>
+								<input type="text" name="subcat" class="form-control" placeholder="Enter Sub-Category" required>
+							</div>
+						</div>
+                        <div class="row form-group">
+							<div class="col-md-12">
+								<label for="ques">QUIZ: Question</label>
+								<input type="text" name="ques" class="form-control" placeholder='Enter your Quiz question' required>
+							</div>
+                            </div>
+						<div class="row form-group">
+							<div class="col-md-6">
+								<label for="o1">Option.1</label>
+								<input type="text" name="o1" class="form-control" placeholder="Enter Option 1" required>
+							</div>
+							<div class="col-md-6">
+								<label for="o2">Option.2</label>
+								<input type="text" name="o2" class="form-control" placeholder="Enter Option 2" required>
+							</div>
+                            <div class="col-md-6">
+								<label for="o3">Option.3</label>
+								<input type="text" name="o3" class="form-control" placeholder="Enter Option 3" required>
+							</div>
+                             <div class="col-md-6">
+								<label for="o4">Option.4</label>
+								<input type="text" name="o4" class="form-control" placeholder="Enter Option 4" required>
+							</div>
+                            <div class="col-md-6">
+                            <select  name="answer" required>
+                                <option>Select Answer</option>
+                                <option>option1</option>
+                                <option>option2</option>
+                                <option>option3</option>
+                                <option>option4</option>
+                                </select>
+								
+							</div>
+						</div>
+						
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="file">Upload Cover Image</label> -->
+								<input type="file" name="picon" class="form-control" accept="image/*" required>
+							</div>
+						</div>
+                        <div class="row form-group">
+							<div class="col-md-12">
+								<label for="file">Upload Your Video</label> -->
+								<input type="file" name="video" class="form-control" accept="video/*" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Save" class="btn btn-primary">
+						</div>
+
+					</form>		
+				</div>
+			<div class="col-md-6">
+				<img class="img-responsive" src="{% static 'images/Mainlogo.png' %}" alt="">
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block stats %}
+{% endblock %}
+{% block cat %}
+{% endblock %}
+{%block offer %}
+{%endblock%}
+{% block footer %}
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			</div>
+	</footer>
+{% endblock %}

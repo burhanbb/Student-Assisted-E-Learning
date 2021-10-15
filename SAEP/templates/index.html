@@ -1,0 +1,567 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Student Assisted E-Learning</title>
+	<link rel="icon" href="{% static 'images/Mainlogo2.png' %}" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+	
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css'%}">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
+
+	<!-- Pricing -->
+	<link rel="stylesheet" href="{% static 'css/pricing.css' %}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<!-- Modernizr JS -->
+	<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 text-right">
+						<p class="site">Student Assisted E-Learning</p>
+						<p class="num">Call: +91 87704 88131</p>
+						<ul class="fh5co-social">
+							<li><a href="#"><i class="icon-facebook2"></i></a></li>
+							<li><a href="#"><i class="icon-twitter2"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble2"></i></a></li>
+							<li><a href="#"><i class="icon-github"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}><img src="{% static 'images/Mainlogo2.png' %}" width="100" alt="Logo"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href={{curl}}>Home</a></li>
+							<li><a href={{curl}}course/ >Courses</a></li>
+							<li><a href={{curl}}teacher/ >Teacher</a></li>
+							<li><a href={{curl}}about/ >About</a></li>
+							<li><a href={{curl}}pricing/ >Pricing</a></li>
+							<li><a href={{curl}}blog/ >Blog</a></li>
+								<!-- <ul class="dropdown">
+									<li><a href="#">Web Design</a></li>
+									<li><a href="#">eCommerce</a></li>
+									<li><a href="#">Branding</a></li>
+									<li><a href="#">API</a></li>
+								</ul> -->
+							
+							<li><a href={{curl}}contact/ >Contact</a></li>
+							<li class="btn-cta"><a href={{curl}}login/ ><span>Login</span></a></li>
+							
+							<li class="btn-cta"><a href={{curl}}signupt/ ><span>Create a Course</span></a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		{% endblock %}
+	</nav>
+	{% block flexslide %}
+	<aside id="fh5co-hero">
+		<div class="flexslider">
+			<ul class="slides">
+		   	<li style="background-image: url('{% static 'images/bg1.jpg'%}')">
+		   		<div class="overlay-gradient"></div>
+		   		<div class="container">
+		   			<div class="row">
+			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
+			   				<div class="slider-text-inner">
+			   					<h1>The Roots of Education are Bitter, But the Fruit is Sweet</h1>
+									<h2>Sign Up As A Student Today!</h2>
+									<p><a class="btn btn-primary btn-lg" href={{curl}}signups/ >Click Here</a></p>
+			   				</div>
+			   			</div>
+			   		</div>
+		   		</div>
+		   	</li>
+		   	<li style="background-image: url('{% static 'images/bg2.jpg' %}')">
+		   		<div class="overlay-gradient"></div>
+		   		<div class="container">
+		   			<div class="row">
+			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
+			   				<div class="slider-text-inner">
+			   					<h1>The Great Aim of Education is not Knowledge, But Action</h1>
+									<h2>Sign Up As A Tutor Today!</a></h2>
+									<p><a class="btn btn-primary btn-lg btn-learn" href={{curl}}signupt/ >Click Here</a></p>
+			   				</div>
+			   			</div>
+			   		</div>
+		   		</div>
+		   	</li>
+		   	<li style="background-image: url('{% static 'images/bg3.jpg' %}')">
+		   		<div class="overlay-gradient"></div>
+		   		<div class="container">
+		   			<div class="row">
+			   			<div class="col-md-8 col-md-offset-2 text-center slider-text">
+			   				<div class="slider-text-inner">
+			   					<h1>We Help You to Learn New Things</h1>
+									<h2>Create A Student Account Today!</a></h2>
+									<p><a class="btn btn-primary btn-lg btn-learn" href={{curl}}signups/ >Click Here</a></p>
+			   				</div>
+			   			</div>
+			   		</div>
+		   		</div>
+		   	</li>		   	
+		  	</ul>
+	  	</div>
+	</aside>
+{% endblock %}
+{% block category %}
+	<div id="fh5co-course-categories">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Course categories</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-sm-6 text-center animate-box">
+					<div class="services">
+						<a href={{curl}}coursecat?cat=Buisness ><span class="icon">
+							<i class="icon-shop"></i>
+						</span></a>
+						<div class="desc">
+							<h3><a href={{curl}}coursecat?cat=Buisness >Business</a></h3>
+							<p>Balanced approach to the theory and application of business concepts, with attention to the knowledge and skills necessary for student success in this course and beyond.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center animate-box">
+					<div class="services">
+						<a href={{curl}}coursecat?cat=Health ><span class="icon">
+							<i class="icon-heart4"></i>
+						</span></a>
+						<div class="desc">
+							<h3><a href={{curl}}coursecat?cat=Health >Health &amp; Psychology</a></h3>
+							<p>Courses are ideal for health and social care professionals who would like to learn more about applied psychology as well as different medical fields.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center animate-box">
+					<div class="services">
+						<a href={{curl}}coursecat?cat=Accounting ><span class="icon">
+							<i class="icon-banknote"></i>
+						</span></a>
+						<div class="desc">
+							<h3><a href={{curl}}coursecat?cat=Accounting >Accounting</a></h3>
+							<p>Courses in accounting helps the decision-makers of a company to make effective choices, by providing information on the financial status of the business.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center animate-box">
+					<div class="services">
+						<a href={{curl}}coursecat?cat=Technology ><span class="icon">
+							<i class="icon-lab2"></i>
+						</span></a>
+						<div class="desc">
+							<h3><a href={{curl}}coursecat?cat=Technology >Science &amp; Technology</a></h3>
+							<p>As a broad field, science and technology courses cover a breadth of disciplines, including biotechnology, life and physical science, animal and plant science and information technology.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center animate-box">
+					<div class="services">
+						<a href={{curl}}coursecat?cat=Art ><span class="icon">
+							<i class="icon-photo"></i>
+						</span></a>
+						<div class="desc">
+							<h3><a href={{curl}}coursecat?cat=Art >Art &amp; Media</a></h3>
+							<p>Courses in Art provides a foundation of visual arts knowledge and skills and their connections to other subjects, and explores the discipline in depth both intellectually and experientially. </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center animate-box">
+					<div class="services">
+						<a href={{curl}}coursecat?cat=Real+Estate ><span class="icon">
+							<i class="icon-home-outline"></i>
+						</span></a>
+						<div class="desc">
+							<h3><a href={{curl}}coursecat?cat=Real+Estate >Real Estate</a></h3>
+							<p>Real estate course could have the skills and education required for a position as a property funding specialist, property valuer, property analyst, property development advisor or land economist.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center animate-box">
+					<div class="services">
+						<a href={{curl}}coursecat?cat=Language ><span class="icon">
+							<i class="icon-bubble3"></i>
+						</span></a>
+						<div class="desc">
+							<h3><a href={{curl}}coursecat?cat=Language >Language</a></h3>
+							<p>You are learning languages online in order to study or work abroad or simply want to explore different cultures, you will find courses to help you on your way.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 text-center animate-box">
+					<div class="services">
+						<a href={{curl}}coursecat?cat=Media ><span class="icon">
+							<i class="icon-world"></i>
+						</span></a>
+						<div class="desc">
+							<h3><a href={{curl}}coursecat?cat=Media >Media</a></h3>
+							<p>Media courses introduces students to the study of contemporary forms of mediated forms ofcommunication. Issues include: the economics of media production; the impact of media on individual attitudes, values and behaviors; the role of media professionals  etc.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block counter %}
+	<div id="fh5co-counter" class="fh5co-counters" style="background-image: url('{% static 'images/bg4.jpg' %}')" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="row">
+						<div class="col-md-3 col-sm-6 text-center animate-box">
+							<span class="icon"><i class="icon-study"></i></span>
+							<span class="fh5co-counter js-counter" data-from="0" data-to={{totals}} data-speed="5000" data-refresh-interval="50"></span>
+							<span class="fh5co-counter-label">Students Enrolled</span>
+						</div>
+						<div class="col-md-3 col-sm-6 text-center animate-box">
+							<span class="icon"><i class="icon-bulb"></i></span>
+							<span class="fh5co-counter js-counter" data-from="0" data-to={{totalc}} data-speed="5000" data-refresh-interval="500"></span>
+							<span class="fh5co-counter-label">Courses Available</span>
+						</div>
+						<div class="col-md-3 col-sm-6 text-center animate-box">
+							<span class="icon"><i class="icon-head"></i></span>
+							<span class="fh5co-counter js-counter" data-from="0" data-to={{totalt}} data-speed="5000" data-refresh-interval="500"></span>
+							<span class="fh5co-counter-label">Certified Tutors</span>
+						</div>
+						<div class="col-md-3 col-sm-6 text-center animate-box">
+							<span class="icon"><i class="icon-banknote"></i></span>
+							<span class="fh5co-counter js-counter" data-from="0" data-to={{totalp}} data-speed="5000" data-refresh-interval="500"></span>
+							<span class="fh5co-counter-label">Payments Completed</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block course %}
+	<div id="fh5co-course">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Our Courses</h2>
+				</div>
+			</div>
+			<div class="row">
+			{% for i in data %}
+				<div class="col-md-6 animate-box">
+					<div class="course">
+						<a href={{curl}}login/ class="course-img" style="background-image: url('{{media_url}}{{i.0}}')">
+						</a>
+						<div class="desc">
+							<h3><a href={{curl}}login/ >{{i.1}}</a></h3>
+							<p>{{i.2}}</p>
+							<span><a href={{curl}}login/ class="btn btn-primary btn-sm btn-course">Take A Course</a></span>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+				
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+	{% block test %}
+	<div id="fh5co-testimonial" style="background-image: url('{% static 'images/bg0.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2><span>Testimonials</span></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="row animate-box">
+						<div class="owl-carousel owl-carousel-fullwidth">
+						{% for t in test %}
+							<div class="item">
+								<div class="testimony-slide active text-center">
+									<div class="user" style="background-image: url('{{media_url}}{{t.3}}')"></div>
+									<span>{{t.1}} {{t.2}}<br><small>Students</small></span>
+									<blockquote>
+										<p>&ldquo;{{t.0}}&rdquo;</p>
+									</blockquote>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block blog %}
+	<div id="fh5co-blog">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Blog &amp; Events</h2>
+				</div>
+			</div>
+			<div class="row">
+				{% for h in blog %}
+				<div class="col-lg-4 col-md-4">
+					<div class="fh5co-blog animate-box">
+						<a href={{curl}}login/ class="blog-img-holder" style="background-image: url('{{media_url}}{{h.0}}')"></a>
+						<div class="blog-text">
+							<h3><a href={{curl}}login/ >{{h.1}}</a></h3>
+							<p>{{h.2}}</p>
+						</div> 
+						
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block pricing %}
+	<div id="fh5co-pricing" class="fh5co-bg-section">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Plan &amp; Pricing</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="pricing pricing--rabten">
+					<div class="col-md-4 animate-box">
+						<div class="pricing__item">
+							<div class="wrap-price">
+								 <!-- <div class="icon icon-user2"></div> -->
+	                     <h3 class="pricing__title">Silver</h3>
+	                     <!-- <p class="pricing__sentence">Single user license</p> -->
+							</div>
+                     <div class="pricing__price">
+                        <span class="pricing__anim pricing__anim--1">
+								<span class="pricing__currency">&#x20B9;</span>99
+                        </span>
+                        <span class="pricing__anim pricing__anim--2">
+								<span class="pricing__period">Lifetime</span>
+                        </span>
+                     </div>
+                     <div class="wrap-price">
+                     	<ul class="pricing__feature-list">
+	                        <li class="pricing__feature">Lifetime Access</li>
+	                        <li class="pricing__feature">Only 5 Courses</li>
+	                        <li class="pricing__feature">Comment Section Included</li>
+	                     </ul>
+	                     <a href={{curl}}login/ ><button class="pricing__action">Choose plan</button></a>
+                     </div>
+                  </div>
+					</div>
+					<div class="col-md-4 animate-box">
+						<div class="pricing__item">
+							<div class="wrap-price">
+								<!-- <div class="icon icon-store"></div> -->
+	                     <h3 class="pricing__title">Gold</h3>
+	                     <!-- <p class="pricing__sentence">Up to 5 users</p> -->
+							</div>
+                     <div class="pricing__price">
+                        <span class="pricing__anim pricing__anim--1">
+								<span class="pricing__currency">&#x20B9;</span>249
+                        </span>
+                        <span class="pricing__anim pricing__anim--2">
+								<span class="pricing__period">Lifetime</span>
+                        </span>
+                     </div>
+                     <div class="wrap-price">
+                     	<ul class="pricing__feature-list">
+	                        <li class="pricing__feature">Lifetime Access</li>
+	                        <li class="pricing__feature">Only 20 Courses</li>
+	                        <li class="pricing__feature">Comment Section Included</li>
+	                     </ul>
+	                     <a href={{curl}}login/ ><button class="pricing__action">Choose plan</button></a>
+                     </div>
+                 </div>
+					</div>
+					<div class="col-md-4 animate-box">
+                  <div class="pricing__item">
+                  	<div class="wrap-price">
+                  		<!-- <div class="icon icon-home2"></div> -->
+	                     <h3 class="pricing__title">Platinum</h3>
+	                     <!-- <p class="pricing__sentence">Unlimited users</p> -->
+							</div>
+                     <div class="pricing__price">
+                        <span class="pricing__anim pricing__anim--1">
+								<span class="pricing__currency">&#x20B9;</span>499
+                        </span>
+                        <span class="pricing__anim pricing__anim--2">
+								<span class="pricing__period">Lifetime</span>
+                        </span>
+                     </div>
+                     <div class="wrap-price">
+                     	<ul class="pricing__feature-list">
+	                        <li class="pricing__feature">Lifetime Access</li>
+	                        <li class="pricing__feature">Unlimited Courses</li>
+	                        <li class="pricing__feature">Comment Section Included</li>
+	                     </ul>
+	                     <a href={{curl}}login/ ><button class="pricing__action">Choose plan</button></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block offer %}
+{% endblock %}
+{% block footer %}
+	<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-3 fh5co-widget">
+					<h3>About Education</h3>
+					<p>Education is both the act of teaching knowledge to others and the act of receiving knowledge from someone else.</p>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+					<h3>Learning</h3>
+					<ul class="fh5co-footer-links">
+						<li><a href={{curl}}course/ >Course</a></li>
+						<li><a href={{curl}}blog/ >Blog</a></li>
+						<li><a href={{curl}}contact/ >Contact</a></li>
+						<li><a href={{curl}}teacher/ >Teachers</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+					<h3>Learn &amp; Grow</h3>
+					<ul class="fh5co-footer-links">
+						<li><a href={{curl}}blog/ >Blog</a></li>
+						<li><a href={{curl}}about/ >About</a></li>
+						<li><a href={{curl}}signups/ >Create Student Account</a></li>
+						<li><a href={{curl}}signupt/ >Create Tutor Account</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+					<h3>Engage us</h3>
+					<ul class="fh5co-footer-links">
+						<li><a href={{curl}}pricing/ >Plans and Pricing</a></li>
+						<li><a href={{curl}}login/ >Login</a></li>
+						<li><a href={{curl}}forget/ >Forgot Password?</a></li>
+					</ul>
+				</div>
+			</div>
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			
+	</footer>
+	</div>
+{% endblock %}
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<!-- Stellar Parallax -->
+	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+	<!-- Carousel -->
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<!-- Flexslider -->
+	<script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+	<!-- countTo -->
+	<script src="{% static 'js/jquery.countTo.js' %}"></script>
+	<!-- Magnific Popup -->
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/magnific-popup-options.js' %}"></script>
+	<!-- Count Down -->
+	<script src="{% static 'js/simplyCountdown.js' %}"></script>
+	<!-- Main -->
+	<script src="{% static 'js/main.js' %}"></script>
+	<script>
+    var d = new Date(new Date().getTime() + 1000 * 120 * 120 * 2000);
+
+    // default example
+    simplyCountdown('.simply-countdown-one', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate()
+    });
+
+    //jQuery example
+    $('#simply-countdown-losange').simplyCountdown({
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        enableUtc: false
+    });
+	</script>
+	</body>
+</html>
+

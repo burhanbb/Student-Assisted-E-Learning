@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}Stdcbrfjr94j/profile/ ><img src="{{media_url}}{{filename}}" width="100" alt="Logo"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href={{curl}}Stdcbrfjr94j/ >Home</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/profile/ >Profile</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/viewall/ >All Courses</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/mycor/ >My Courses</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/performance/ >My Performance</a></li>
+							<li><a href={{curl}} >Logout</a></li>
+                            <li class="btn-cta"><a href={{curl}}Stdcbrfjr94j/subscribe/ ><span>Subscribe Here</span></a></li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		{%endblock %}
+{% block flexslide %}
+{% endblock %}
+{% block category %}
+{% endblock %}
+{% block counter %}
+{% endblock %}
+{% block course %}
+	<div id="fh5co-course">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Thank You, Amount Paid Successfully : {{price}}</h2>
+					<p>Your {{plan}} plan is active now!</p>
+				</div>
+			</div>
+			<div class="row">
+                
+				<div class="col-md-6 animate-box">
+					<div class="course">
+						<div class="desc">
+							<span><a href={{curl}}Stdcbrfjr94j/viewall/ class="btn btn-primary btn-sm btn-course">Click Here To Explore Our Courses</a></span>
+						</div>
+					</div>
+				</div>	
+                
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+{% block test %}
+{% endblock %}
+{% block blog %}
+{% endblock %}
+{% block pricing %}
+{% endblock %}
+{% block offer %}
+{% endblock %}
+{% block footer %}
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			</div>
+	</footer>
+{% endblock %}

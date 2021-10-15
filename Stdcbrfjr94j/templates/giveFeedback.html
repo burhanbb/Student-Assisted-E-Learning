@@ -1,0 +1,91 @@
+{% extends 'about.html' %}
+{% load static %}
+{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}Stdcbrfjr94j/profile/ ><img src="{{media_url}}{{filename}}" width="100" alt="Logo"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href={{curl}}Stdcbrfjr94j/ >Home</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/profile/ >Profile</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/viewall/ >All Courses</a></li>
+							<li ><a href={{curl}}Stdcbrfjr94j/mycor/ >My Courses</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/performance/ >My Performance</a></li>
+							<li><a href={{curl}} >Logout</a></li>
+                            <li class="btn-cta"><a href={{curl}}Stdcbrfjr94j/subscribe/ ><span>Subscribe Here</span></a></li>
+							<!-- <li class="btn-cta"><a href={{curl}}login/ ><span>Login</span></a></li>
+							
+							<li class="btn-cta"><a href={{curl}}signupt/ ><span>Create a Course</span></a></li> -->
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		{%endblock %}
+
+        {% block flex %}
+        {%endblock %}
+        {% block content %}
+	<div id="fh5co-about">
+		<div class="container">
+			<div class="col-md-6 animate-box">
+					<h3>Give Feedback </h3>
+                    <font color="red" style="height:20px;">{{output}}</font>   
+                    <font color="green" style="height:20px;">{{output1}}</font>
+					<form action={{curl}}Stdcbrfjr94j/giveFeedback/?uid={{uid}} method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="cname">Your Experience</label>
+								<input type="text" name="cname" class="form-control" placeholder='Enter Your Experience' required>
+							</div>
+						</div>
+                        <div class="row form-group">
+							<div class="col-md-6">
+                            <label for="cname">Choose your rating (out of 10)</label>
+                            <select  name="cat" required >
+                                <option>10</option>
+                                <option>9</option>
+                                <option>8</option>
+                                <option>7</option>
+                                <option>6</option>
+                                <option>5</option>
+                                <option>4</option>
+                                <option>3</option>
+                                <option>2</option>
+                                <option>1</option>
+                                </select>
+							</div>
+                            </div>
+						<div class="form-group">
+							<input type="submit" value="Save" class="btn btn-primary">
+						</div>
+
+					</form>		
+				</div>
+			<div class="col-md-6">
+				<img class="img-responsive" src="{% static 'images/Mainlogo.png' %}" alt="">
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block stats %}
+{% endblock %}
+{% block cat %}
+{% endblock %}
+{%block offer %}
+{%endblock%}
+{% block footer %}
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			</div>
+	</footer>
+{% endblock %}

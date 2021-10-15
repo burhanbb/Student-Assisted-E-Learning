@@ -1,0 +1,118 @@
+{% extends 'about.html' %}
+{% load static %}
+{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}Hdgeub7746h/profile/ ><img src="{{media_url}}{{filename}}" width="100" alt="Profile Picture"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href={{curl}}Hdgeub7746h/ >Home</a></li>
+							<li><a href={{curl}}Hdgeub7746h/profile/ >Profile</a></li>
+							<li><a href={{curl}}Hdgeub7746h/MyCourse/ >My Courses</a></li>
+							<li class="active" ><a href={{curl}}Hdgeub7746h/blog/  >My Blogs</a></li>
+							<li><a href={{curl}}Hdgeub7746h/feedback/ >Feedbacks</a></li>
+							<!-- <li class="has-dropdown"> -->
+								<li><a href={{curl}}Hdgeub7746h/comments/ >Comments</a></li>
+								<!-- <ul class="dropdown">
+									<li><a href="#">Web Design</a></li>
+									<li><a href="#">eCommerce</a></li>
+									<li><a href="#">Branding</a></li>
+									<li><a href="#">API</a></li> 
+								</ul> -->
+							<!-- </li> -->
+							<!-- <li><a href={{curl}}contact/ >Contact</a></li> -->
+							<li><a href={{curl}} >Logout</a></li>
+							<li class="btn-cta"><a href={{curl}}Hdgeub7746h/addcourse/ ><span>Create a Course</span></a></li>
+							
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		{%endblock %}
+
+        {% block flex %}
+        {%endblock %}
+        {% block content %}
+<div id="fh5co-about">
+	<div class="container">
+		<div class="col-md-6 animate-box">
+					<h3>Edit Exisiting Blog</h3>
+                    <font color="red" style="height:20px;">{{output}}</font>   
+                    <font color="green" style="height:20px;">{{output1}}</font>
+					<form action={{curl}}Hdgeub7746h/editblog/ method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="row form-group">
+							<div class="col-md-6">
+                            <select  name="bogname" required>
+                                <option>Select Blog To Edit</option>
+                                {% for x in data %}
+                                <option>{{x.0}}</option>
+                                {%endfor%}
+                                </select>
+                                </div>
+                                </div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="cname">Blog Title</label>
+								<input type="text" name="cname" class="form-control" placeholder='Enter new Blog Title' >
+							</div>
+						</div>
+                        <div class="row form-group">
+							<div class="col-md-12">
+								<label for="ccontent">Blog Content</label>
+								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Enter new Blog Content" ></textarea>
+							</div>
+						</div>
+                        <div class="row form-group">
+							<div class="col-md-6">
+                            <select  name="cat" >
+                                <option></option>
+                                <option>Web Design</option>
+                                <option>eCommerce</option>
+                                <option>Branding</option>
+                                <option>API</option
+                                </select>
+							</div>
+							
+                        </div>
+						
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="file">Upload New Cover Image</label> -->
+								<input type="file" name="picon" class="form-control" accept="image/*" >
+							</div>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Save" class="btn btn-primary">
+						</div>
+
+					</form>		
+				</div>
+		<div class="col-md-6">
+			<img class="img-responsive" src="{% static 'images/Mainlogo.png' %}" alt="">
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block stats %}
+{% endblock %}
+{% block cat %}
+{% endblock %}
+{%block offer %}
+{%endblock%}
+{% block footer %}
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			</div>
+	</footer>
+{% endblock %}

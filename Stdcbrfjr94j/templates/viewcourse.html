@@ -1,0 +1,105 @@
+{% extends 'about.html' %}
+{% load static %}
+{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}Stdcbrfjr94j/profile/ ><img src="{{media_url}}{{filename}}" width="100" alt="Logo"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href={{curl}}Stdcbrfjr94j/ >Home</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/profile/ >Profile</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/viewall/ >All Courses</a></li>
+							<li class="active" ><a href={{curl}}Stdcbrfjr94j/mycor/ >My Courses</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/performance/ >My Performance</a></li>
+							<li><a href={{curl}} >Logout</a></li>
+                            <li class="btn-cta"><a href={{curl}}Stdcbrfjr94j/subscribe/ ><span>Subscribe Here</span></a></li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		{%endblock %}
+
+        {% block flex %}
+        {%endblock %}
+        {% block content %}
+        {% for i in data %}
+	<div id="fh5co-about">
+		<div class="container">
+			<div class="col-md-6 animate-box">
+				<span>{{i.3}}-{{i.4}}</span>
+				<h2>{{i.1}}</h2>
+				<p>{{i.2}}</p>
+				<div class="course">
+				<div class="desc">
+				<span><a href={{curl}}Stdcbrfjr94j/checkquiz?uid={{uid}} class="btn btn-primary btn-sm btn-course">Take the Quiz</a></span>
+			</div>
+			</div>
+			</div>
+			<div class="col-md-6">
+            <video width="480" height="320" controls>
+            <source src="{{media_url}}{{i.0}}" type="video/mp4">
+            </video>
+			</div>
+{%endfor%}   
+		<div class="container">
+			<div class="col-md-6 animate-box">
+            <h3>Comments:</h3>
+            </div>
+	    </div> 
+            <font color="green" style="height:20px;">{{output}}</font> <font color="green" style="height:20px;">{{output1}}</font>
+            <form action={{curl}}Stdcbrfjr94j/viewcourse/?uid={{uid}} method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for d in comments %}
+			<div class="col-md-6 animate-box">
+				<span>{{d.1}}</span>
+				<h2>{{d.2}}</h2>
+			</div>
+			<div class="col-md-6">
+            <video width="480" height="320" controls>
+            <source src="{{media_url}}{{d.3}}" type="video/mp4">
+            </video>
+			</div>
+            {% endfor %}
+            
+            
+
+            <div class="col-md-12 animate-box">
+					<div class="course">
+						<div class="row form-group">
+							<div class="col-md-12">
+								<input type="text" name="cname" class="form-control" placeholder='Enter your comment' required>
+                                <input type="file" name="video" class="form-control" accept="video/*">
+                                <input type="submit" value="Post" class="btn btn-primary">
+							</div>
+						</div>
+					</div>
+            </div>
+				</form>
+		
+    </div>
+	</div>
+
+{% endblock %}
+{% block stats %}
+{% endblock %}
+{% block cat %}
+{% endblock %}
+{%block offer %}
+{%endblock%}
+{% block footer %}
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			</div>
+	</footer>
+{% endblock %}

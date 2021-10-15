@@ -1,0 +1,121 @@
+{% extends 'index.html '%}
+{% load static %}
+{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}Hdgeub7746h/profile/ ><img src="{{media_url}}{{filename}}" width="100" alt="Logo"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href={{curl}}Hdgeub7746h/ >Home</a></li>
+							<li><a href={{curl}}Hdgeub7746h/profile/ >Profile</a></li>
+							<li><a href={{curl}}Hdgeub7746h/MyCourse/ >My Courses</a></li>
+						<li ><a href={{curl}}Hdgeub7746h/blog/  >My Blogs</a></li>
+							<li><a href={{curl}}Hdgeub7746h/feedback/ >Feedbacks</a></li>
+							<!-- <li class="has-dropdown"> -->
+								<li><a href={{curl}}Hdgeub7746h/comments/ >Comments</a></li>
+								<!-- <ul class="dropdown">
+									<li><a href="#">Web Design</a></li>
+									<li><a href="#">eCommerce</a></li>
+									<li><a href="#">Branding</a></li>
+									<li><a href="#">API</a></li> 
+								</ul> -->
+							<!-- </li> -->
+							<!-- <li><a href={{curl}}contact/ >Contact</a></li> -->
+							<li><a href={{curl}} >Logout</a></li>
+							<li class="btn-cta"><a href={{curl}}Hdgeub7746h/addcourse/ ><span>Create a Course</span></a></li>
+							<!-- <li class="btn-cta"><a href={{curl}}login/ ><span>Login</span></a></li>
+							
+							<li class="btn-cta"><a href={{curl}}signupt/ ><span>Create a Course</span></a></li> -->
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+{%endblock%}
+{% block flexslide %}
+{% endblock %}
+{% block category %}
+{% endblock %}
+
+		{% block counter %}
+	<div id="fh5co-counter" class="fh5co-counters" style="background-image: url('{% static 'images/bg4.jpg' %}')" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="row">
+						<div class="col-md-3 col-sm-6 text-center animate-box">
+							<span class="icon"><i class="icon-study"></i></span>
+							<span class="fh5co-counter js-counter" data-from="0" data-to={{totals}} data-speed="5000" data-refresh-interval="50"></span>
+							<span class="fh5co-counter-label">Students Enrolled</span>
+						</div>
+						<div class="col-md-3 col-sm-6 text-center animate-box">
+							<span class="icon"><i class="icon-bulb"></i></span>
+							<span class="fh5co-counter js-counter" data-from="0" data-to={{totalc}} data-speed="5000" data-refresh-interval="500"></span>
+							<span class="fh5co-counter-label">Courses Available</span>
+						</div>
+						<div class="col-md-3 col-sm-6 text-center animate-box">
+							<span class="icon"><i class="icon-head"></i></span>
+							<span class="fh5co-counter js-counter" data-from="0" data-to={{totalt}} data-speed="5000" data-refresh-interval="500"></span>
+							<span class="fh5co-counter-label">Certified Tutors</span>
+						</div>
+						<div class="col-md-3 col-sm-6 text-center animate-box">
+							<span class="icon"><i class="icon-banknote"></i></span>
+							<span class="fh5co-counter js-counter" data-from="0" data-to={{totalp}} data-speed="5000" data-refresh-interval="500"></span>
+							<span class="fh5co-counter-label">Payments Completed</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block course %}
+	{% endblock %}
+		
+        {% block test %}
+        {% endblock %}
+        {% block blog %}
+		<div id="fh5co-blog">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Blog &amp; Events</h2>
+					<p>Blog DESC</p>
+				</div>
+			</div>
+			<div class="row">
+				{% for h in blog %}
+				<div class="col-lg-4 col-md-4">
+					<div class="fh5co-blog animate-box">
+						<a href={{curl}}Hdgeub7746h/blogtu/ class="blog-img-holder" style="background-image: url('{{media_url}}{{h.0}}')"></a>
+						<div class="blog-text">
+							<h3><a href={{curl}}Hdgeub7746h/blogtu/ >{{h.1}}</a></h3>
+							<p>{{h.2}}</p>
+						</div> 
+						
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+        {% endblock %}
+		{% block pricing %}
+{% endblock %}
+{% block offer %}
+{% endblock %}
+{% block footer %}
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			</div>
+	</footer>
+{% endblock %}

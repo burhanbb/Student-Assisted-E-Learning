@@ -1,0 +1,111 @@
+{% extends 'about.html' %}
+{% load static %}
+{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}Stdcbrfjr94j/profile/ ><img src="{{media_url}}{{filename}}" width="100" alt="Logo"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href={{curl}}Stdcbrfjr94j/ >Home</a></li>
+							<li class="active" ><a href={{curl}}Stdcbrfjr94j/profile/ >Profile</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/viewall/ >All Courses</a></li>
+							<li ><a href={{curl}}Stdcbrfjr94j/mycor/ >My Courses</a></li>
+							<li><a href={{curl}}Stdcbrfjr94j/performance/ >My Performance</a></li>
+							<li><a href={{curl}} >Logout</a></li>
+                            <li class="btn-cta"><a href={{curl}}Stdcbrfjr94j/subscribe/ ><span>Subscribe Here</span></a></li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		{%endblock %}
+        {% block bgimg %}
+		   	<li style="background-image: url('{% static 'images/bg3.jpg' %}');">
+			   {% endblock %}
+                {%block heading%}
+			   					<h1 class="heading-section">Edit Profile</h1>
+									<h2>Welcome TO Student Assisted E-Learning</h2>
+									{%endblock %}
+                                    {% block content %}
+	<div id="fh5co-about">
+		<div class="container">
+			<div class="col-md-6 animate-box">
+					<h3>Edit</h3>
+                    <font color="red" style="height:20px;">{{output}}</font>   
+                    <font color="green" style="height:20px;">{{output1}}</font>
+					<form action={{curl}}Stdcbrfjr94j/profile/ method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+						<div class="row form-group">
+							<div class="col-md-6">
+								<label for="fname">First Name</label>
+								<input type="text" name="fname" class="form-control" placeholder={{name}}>
+							</div>
+							<div class="col-md-6">
+								<label for="lname">Last Name</label>
+								<input type="text" name="lname" class="form-control" placeholder={{lastname}}>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="phonenumber">Mobile Number</label>
+								<input type="text" name="mobile" class="form-control" placeholder={{mobileno}}>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-6">
+                            <label for="dob">Date Of Birth</label>
+								<label for="day">Day(dd)</label>
+								<input type="text" name="day" class="form-control" placeholder={{dobday}}>
+							</div>
+							<div class="col-md-6">
+								<label for="dobmon">Month(mm)</label>
+								<input type="text" name="mon" class="form-control" placeholder={{dobmon}}>
+							</div>
+                            <div class="col-md-6">
+								<label for="doby">Year(yyyy)</label>
+								<input type="text" name="year" class="form-control" placeholder={{doby}}>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="file">Upload Profile Picture</label> -->
+								<input type="file" name="picon" class="form-control" >
+							</div>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Save" class="btn btn-primary">
+						</div>
+
+					</form>		
+				</div>
+			<div class="col-md-6">
+				<img class="img-responsive" src="{% static 'images/Mainlogo.png' %}" alt="">
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block stats %}
+{% endblock %}
+{% block cat %}
+{% endblock %}
+{%block offer %}
+{%endblock%}
+{% block footer %}
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			</div>
+	</footer>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block menu %}
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href={{curl}}Hdgeub7746h/profile/ ><img src="{{media_url}}{{filename}}" width="100" alt="Profile Picture"></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href={{curl}}Hdgeub7746h/ >Home</a></li>
+							<li><a href={{curl}}Hdgeub7746h/profile/ >Profile</a></li>
+							<li><a href={{curl}}Hdgeub7746h/MyCourse/ >My Courses</a></li>
+							<li><a href={{curl}}Hdgeub7746h/blog/  >My Blogs</a></li>
+							<li class="active"><a href={{curl}}Hdgeub7746h/feedback/ >Feedbacks</a></li>
+							<!-- <li class="has-dropdown"> -->
+								<li><a href={{curl}}Hdgeub7746h/comments/ >Comments</a></li>
+								<!-- <ul class="dropdown">
+									<li><a href="#">Web Design</a></li>
+									<li><a href="#">eCommerce</a></li>
+									<li><a href="#">Branding</a></li>
+									<li><a href="#">API</a></li> 
+								</ul> -->
+							<!-- </li> -->
+							<!-- <li><a href={{curl}}contact/ >Contact</a></li> -->
+							<li><a href={{curl}} >Logout</a></li>
+							<li class="btn-cta"><a href={{curl}}Hdgeub7746h/addcourse/ ><span>Create a Course</span></a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		{%endblock %}
+{% block flexslide %}
+{% endblock %}
+{% block category %}
+{% endblock %}
+{% block counter %}
+{% endblock %}
+{% block course %}
+	<div id="fh5co-blog">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Recieved Feedbacks</h2>
+				</div>
+			</div>
+			<font color="red" style="height:20px;">{{output}}</font>   
+                    <font color="green" style="height:20px;">{{output1}}</font>
+					<form action={{curl}}Hdgeub7746h/feedback/ method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+			<div class="row">
+            {% for i in data%}
+				<div class="col-lg-4 col-md-4">
+					<div class="fh5co-blog animate-box">
+						<a class="blog-img-holder" style="background-image: url('{{media_url}}{{i.2}}')"></a>
+						<div class="blog-text">
+							<h3>{{i.3}} {{i.4}}</h3>
+                            <span class="posted_on">{{i.5}}({{i.1}}/10)</span>
+							<p>{{i.0}}</p>
+							<input type="checkbox" id="Feedback" name={{i.6}} value={{i.6}} >
+						</div> 
+					</div>
+				</div>
+                {% endfor %}
+				<div class="col-md-6 animate-box">
+					<div class="course">
+						
+						
+							<input type="submit" value="Delete Selected Feedbacks" class="btn btn-primary">
+					</div>
+				</div>
+				</form>
+				
+				
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block test %}
+{% endblock %}
+{% block blog %}
+{% endblock %}
+{% block pricing %}
+{% endblock %}
+{% block offer %}
+{% endblock %}
+{% block footer %}
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url('{% static 'images/bg5.jpg' %}')">
+		<div class="overlay"></div>
+		<div class="container">
+				<div class="row row-pb-md">
+				<p color="white">All Rights Reserved. @Student-Assisted-E-Learning-Private-Limited</p>
+			</div>
+			</div>
+	</footer>
+{% endblock %}
