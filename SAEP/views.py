@@ -11,6 +11,7 @@ from . import settings
 import pymongo
 from collections import defaultdict
 import time
+from bson import ObjectId
 
 curl=settings.CURRENT_URL
 media_url=settings.MEDIA_URL
@@ -278,6 +279,13 @@ def signups(request):
                     me = "burhanuddin.argalon@gmail.com"
                     you = email
                     subs.insert_one({'email':email,'status':"Free",'courseopt':[],'amountpaid':"0"})
+                    prof.insert_one({'email':email,'name':"name here",'lastname':"lastname here",'mobileno':"phone number here",'dob':{ 'day':"day here",'month':"month here",'year':"year here"},'filename':'test.jpg'})
+                    idDetails=list(col.find({'email':email},{'_id':1}))
+                    idD=defaultdict(list)
+                    for sub in idDetails:
+                        for key in sub:
+                            idD[key].append(sub[key])
+                    vid=str(idD['_id'][0])
                     msg = MIMEMultipart('alternative')
                     msg['Subject'] = "Verification Mail Student Asisted E-Learning"
                     msg['From'] = me
@@ -291,7 +299,7 @@ def signups(request):
                                     <h2>Email : """+email+"""</h2>
                                     <h2>Password : """+str(password)+"""</h2>
                                     <br>
-                                    <a href='http://localhost:8000/verify?vemail="""+email+"""' >Click here to verify account</a>		
+                                    <a href='http://localhost:8000/verify?vid="""+vid+"""' >Click here to verify account</a>		
                                 </body>
                             </html>
                             """
@@ -316,6 +324,13 @@ def signups(request):
             else:
                 if (password==password1):
                     col.insert_one({"email":email,"password":password,"role":"student","status":0})
+                    prof.insert_one({'email':email,'name':"name here",'lastname':"lastname here",'mobileno':"phone number here",'dob':{ 'day':"day here",'month':"month here",'year':"year here"},'filename':'test.jpg'})
+                    idDetails=list(col.find({'email':email},{'_id':1}))
+                    idD=defaultdict(list)
+                    for sub in idDetails:
+                        for key in sub:
+                            idD[key].append(sub[key])
+                    vid=str(idD['_id'][0])
                     me = "burhanuddin.argalon@gmail.com"
                     you = email
 
@@ -332,7 +347,7 @@ def signups(request):
                                     <h2>Email : """+email+"""</h2>
                                     <h2>Password : """+str(password)+"""</h2>
                                     <br>
-                                    <a href='http://localhost:8000/verify?vemail="""+email+"""' >Click here to verify account</a>		
+                                    <a href='http://localhost:8000/verify?vid="""+vid+"""' >Click here to verify account</a>		
                                 </body>
                             </html>
                             """
@@ -354,9 +369,10 @@ def signups(request):
                     return render(request,'signups.html',{'curl':curl,'output':'Passwords Do Not Match'})
 
 def verify(request):
-    vemail=request.GET.get('vemail')
+    vid=request.GET.get('vid')
+    v=ObjectId(vid)
     col.update_many(
-        {"email":vemail},
+        {"_id":v},
         {
                 "$set":{
                         "status": 1
@@ -391,6 +407,13 @@ def signupt(request):
             else:
                 if (password==password1):
                     col.insert_one({"email":email,"password":password,"role":"tutor","status":0})
+                    prof.insert_one({'email':email,'name':"name here",'lastname':"lastname here",'mobileno':"phone number here",'dob':{ 'day':"day here",'month':"month here",'year':"year here"},'filename':'test.jpg'})
+                    idDetails=list(col.find({'email':email},{'_id':1}))
+                    idD=defaultdict(list)
+                    for sub in idDetails:
+                        for key in sub:
+                            idD[key].append(sub[key])
+                    vid=str(idD['_id'][0])
                     me = "burhanuddin.argalon@gmail.com"
                     you = email
 
@@ -407,7 +430,7 @@ def signupt(request):
                                     <h2>Email : """+email+"""</h2>
                                     <h2>Password : """+str(password)+"""</h2>
                                     <br>
-                                    <a href='http://localhost:8000/verify?vemail="""+email+"""' >Click here to verify account</a>		
+                                    <a href='http://localhost:8000/verify?vid="""+vid+"""' >Click here to verify account</a>		
                                 </body>
                             </html>
                             """
@@ -433,6 +456,13 @@ def signupt(request):
             else:
                 if (password==password1):
                     col.insert_one({"email":email,"password":password,"role":"tutor","status":0})
+                    prof.insert_one({'email':email,'name':"name here",'lastname':"lastname here",'mobileno':"phone number here",'dob':{ 'day':"day here",'month':"month here",'year':"year here"},'filename':'test.jpg'})
+                    idDetails=list(col.find({'email':email},{'_id':1}))
+                    idD=defaultdict(list)
+                    for sub in idDetails:
+                        for key in sub:
+                            idD[key].append(sub[key])
+                    vid=str(idD['_id'][0])
                     me = "burhanuddin.argalon@gmail.com"
                     you = email
 
@@ -449,7 +479,7 @@ def signupt(request):
                                     <h2>Email : """+email+"""</h2>
                                     <h2>Password : """+str(password)+"""</h2>
                                     <br>
-                                    <a href='http://localhost:8000/verify?vemail="""+email+"""' >Click here to verify account</a>		
+                                    <a href='http://localhost:8000/verify?vid="""+vid+"""' >Click here to verify account</a>		
                                 </body>
                             </html>
                             """

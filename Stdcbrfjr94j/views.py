@@ -645,30 +645,34 @@ def mycor(request):
                 user[key].append(sub[key])  
         userDetails=list(user.values())
         filename=userDetails[0][0]
-        subDetails1 = list(subs.find({'email':email},{'_id': 0, 'courseopt':1}))
-        subc=defaultdict(list)
-        for sub in subDetails1:
-            for key in sub:
-                subc[key].append(sub[key])
-        r=len(subc['courseopt'][0])
-        datad=list()
-        for i in range(r):
-            uid=subc['courseopt'][0][i]
-            cor_id=ObjectId(uid)
-            corDetails1 = list(cor.find({'_id':cor_id},{'_id': 0, 'name': 1,
-                        'content': 1,'coverfilename':1}))
-            core=defaultdict(list)
-            for sub in corDetails1:
+        try:
+            subDetails1 = list(subs.find({'email':email},{'_id': 0, 'courseopt':1}))
+            subc=defaultdict(list)
+            for sub in subDetails1:
                 for key in sub:
-                    core[key].append(sub[key])
-            data=list()  
-            data.append(uid)         
-            data.append(core['name'][0])
-            data.append(core['content'][0])
-            data.append(core['coverfilename'][0])
-            datad.append(data)
+                    subc[key].append(sub[key])
+            r=len(subc['courseopt'][0])
+            datad=list()
+            for i in range(r):
+                uid=subc['courseopt'][0][i]
+                cor_id=ObjectId(uid)
+                corDetails1 = list(cor.find({'_id':cor_id},{'_id': 0, 'name': 1,
+                            'content': 1,'coverfilename':1}))
+                core=defaultdict(list)
+                for sub in corDetails1:
+                    for key in sub:
+                        core[key].append(sub[key])
+                data=list()  
+                data.append(uid)         
+                data.append(core['name'][0])
+                data.append(core['content'][0])
+                data.append(core['coverfilename'][0])
+                datad.append(data)
+        except:
+                datad=[]
+            
         if(request.method=="GET"):
-            return render(request,'mycor.html',{'curl':curl,'filename':filename,'media_url':media_url,'data':datad,'uid':uid})
+            return render(request,'mycor.html',{'curl':curl,'filename':filename,'media_url':media_url,'data':datad})
     except:
         return render(request,'mycor.html',{'curl':curl,'media_url':media_url})
     
