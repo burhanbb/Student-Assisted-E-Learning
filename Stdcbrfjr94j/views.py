@@ -435,6 +435,43 @@ def checkenroll(request):
                 "$push":{ "courseopt": uid }
                 })
             res.insert_one({"email":email,"course_id":uid,"result":[] })
+            corDetails=list(cor.find({'_id':ObjectId(uid)}))
+            core=defaultdict(list)
+            for sub in corDetails:
+                for key in sub:
+                    core[key].append(sub[key])
+            me = "burhanuddin.argalon@gmail.com"
+            you = email
+
+            msg = MIMEMultipart('alternative')
+            msg['Subject'] = "Course Enrolled Successfully: Student Assisted E-Learning"
+            msg['From'] = me
+            msg['To'] = you
+
+            html = """<html>
+                        <head></head>
+                        <body>
+                            <h1>Welcome to Student Assisted E-Learning</h1>
+                            <p>---------------------------------------------</p>
+                            <h2>Thanks for subscribing : """+core['name'][0]+""" </h2>
+                            <h2> Click below to login and start learning the course! </h2>
+                            <br>
+                            <h2><a href='http://localhost:8000/login/ >Click here</a></h2>		
+                        </body>
+                    </html>
+                    """
+
+            s = smtplib.SMTP('smtp.gmail.com', 587) 
+            s.starttls() 
+            s.login('burhanuddin.argalon@gmail.com','oouuushpqytkttok') 
+
+            part2 = MIMEText(html, 'html')
+
+            msg.attach(part2)
+
+            s.sendmail(me,you, str(msg)) 
+            s.quit() 
+            print("payment mail sent successfully....")
             response=redirect(curl+'Stdcbrfjr94j/viewdet?uid='+uid)
             return response
 
@@ -480,6 +517,39 @@ def payment(request):
     subs.update_many({'email':email},{
                 "$set":{ "amountpaid": price , "status": stat }
                 })
+    me = "burhanuddin.argalon@gmail.com"
+    you = email
+
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = "Payment Successful: Student Assisted E-Learning"
+    msg['From'] = me
+    msg['To'] = you
+
+    html = """<html>
+                <head></head>
+                <body>
+                    <h1>Welcome to Student Assisted E-Learning</h1>
+                    <p>---------------------------------------------</p>
+                    <h2>Thanks for subscribing : """+stat+""" Plan </h2>
+                    <h2>Amount Paid : &#x20B9;"""+price+""" </h2>
+                    <h2> Click below to login and start exploring our courses! </h2>
+                    <br>
+                    <h2><a href='http://localhost:8000/login/ >Click here</a></h2>		
+                </body>
+            </html>
+            """
+
+    s = smtplib.SMTP('smtp.gmail.com', 587) 
+    s.starttls() 
+    s.login('burhanuddin.argalon@gmail.com','oouuushpqytkttok') 
+
+    part2 = MIMEText(html, 'html')
+
+    msg.attach(part2)
+
+    s.sendmail(me,you, str(msg)) 
+    s.quit() 
+    print("payment mail sent successfully....")
     
     response=redirect(curl+"Stdcbrfjr94j/success?pid="+poid+"&&price="+price)
     return response
@@ -589,6 +659,7 @@ def quizpage(request):
             return render(request,'quizpage.html',{'curl':curl,'filename':filename,'media_url':media_url,'data':datad,'uid':uid,'ques':ques,'output':output})
     except:
         return render(request,'quizpage.html',{'curl':curl,'media_url':media_url})
+
 def checkanswer(request):
     uid=request.GET.get('uid')
     selection=request.GET.get('selection')

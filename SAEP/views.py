@@ -418,7 +418,7 @@ def signupt(request):
                     you = email
 
                     msg = MIMEMultipart('alternative')
-                    msg['Subject'] = "Verification Mail Student Asisted E-Learning"
+                    msg['Subject'] = "Verification Mail Student Assisted E-Learning"
                     msg['From'] = me
                     msg['To'] = you
 
@@ -510,7 +510,7 @@ def forget(request):
         key=None
         email=request.POST.get('email')	
         try:
-            userDetails1 = list(col.find({'email':email},{'_id': 0, 'email': 1,
+            userDetails1 = list(col.find({'email':email},{'_id': 1, 'email': 1,
                     'password': 1, 'role': 1 ,'status':1}))
             user=defaultdict(list)
             for sub in userDetails1:
@@ -518,11 +518,12 @@ def forget(request):
                     user[key].append(sub[key])  
             userDetails=list(user.values())
             if (len(userDetails)>0) :
+                vid=str(user['_id'][0])
                 me = "burhanuddin.argalon@gmail.com"
                 you = email
 
                 msg = MIMEMultipart('alternative')
-                msg['Subject'] = "Change Password: Student Asisted E-Learning"
+                msg['Subject'] = "Change Password: Student Assisted E-Learning"
                 msg['From'] = me
                 msg['To'] = you
 
@@ -533,7 +534,7 @@ def forget(request):
                                 <p>hello, please click on the link below to change your password</p>
                                 <h2>Email : """+email+"""</h2>
                                 <br>
-                                <h2><a href='http://localhost:8000/changepassword?vemail="""+email+"""' >Click here</a></h2>		
+                                <h2><a href='http://localhost:8000/changepassword?vid="""+vid+"""' >Click here</a></h2>		
                             </body>
                         </html>
                         """
@@ -559,9 +560,14 @@ def forget(request):
             return render(request,'forget.html',{'curl':curl,'output1':'Please Enter Registered Email'})
         
 def changepassword(request):
-    vemail=request.GET.get('vemail')
-    vemail1=request.COOKIES.get('email')
-    
+    vid=request.GET.get('vid')
+    uid=ObjectId(vid)
+    userDetails=list(col.find({'_id':uid}))
+    user=defaultdict(list)
+    for sub in userDetails:
+        for key in sub:
+            user[key].append(sub[key])
+    vemail=user['email'][0]
     if request.method=="GET":
         return render(request,'changepassword.html',{'curl':curl,'output1':"Enter New Password For "+str(vemail)})
     else:
@@ -570,7 +576,7 @@ def changepassword(request):
         password1=request.POST.get('password1')
         if(password==password1):
             col.update_many(
-                {"email":vemail1},
+                {"email":vemail},
                 {
                         "$set":{
                                 "password": password
@@ -580,7 +586,7 @@ def changepassword(request):
                         }
                 )
             me = "burhanuddin.argalon@gmail.com"
-            you = vemail1
+            you = vemail
 
             msg = MIMEMultipart('alternative')
             msg['Subject'] = "Password Changed: Student Asisted E-Learning"
@@ -592,7 +598,7 @@ def changepassword(request):
                         <body>
                             <h1>Welcome to Student Assisted E-Learning</h1>
                             <p>Your Password Was Changed Recently</p>
-                            <h2>Email : """+str(vemail1)+"""</h2>
+                            <h2>Email : """+str(vemail)+"""</h2>
                             <h2>Click Below To Login</h2>
                             <br>
                             <a href='http://localhost:8000/login/ >Click here</a>		
